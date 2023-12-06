@@ -1,0 +1,30 @@
+// Exercise 1
+// Function: Reverse an array of ints
+void reverse(int* array, int numElements){
+  int i, j = 0, reversedArray[numElements];
+  for (i = numElements-1; i >= 0; i--){
+    reversedArray[j] = *(array+i);
+    j++;
+  }
+  for (i = 0; i < numElements; i++){
+    *(array+i) = reversedArray[i];
+  }
+}
+// Exercise 2
+// Function: Sorted Array Merger
+int* mergeSortedArray(int* array1, int numElements1, int* array2, int numElements2)
+{
+  int *merged = malloc(sizeof(int) * (numElements1 + numElements2));
+  int i, *p1 = array1, *p2 = array2;
+  for (i=0; i<(numElements1+numElements2); i++){
+    if ((*p1 < *p2) && (*p1 != NULL) && (*p2 != NULL)){
+      *(merged+i) = *p1;
+      p1++;
+    }
+    else{
+      *(merged+i) = *p2;
+      p2++;
+    }
+  }
+  return merged;
+}
